@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+body{
+  /* background: rgb(175, 236, 254); */
+  background: rgb(139,232,254);
+  background: linear-gradient(114deg, rgba(139,232,254,1) 10%, rgba(127,208,250,1) 49%, rgba(90,165,255,1) 90%);
+}
+
+#opcs{
+  background-color: #212529;
+}
+
+.dropdown-item{
+  color: white;
+}
+
+#contPresupuestos{
+  background-color: aliceblue;
+}
+
+#btnNuevo {
+  background-color: rgb(17, 170, 86);
+}
+
+#btnEliminar {
+  background-color: rgb(247, 71, 71);
+}
+
+

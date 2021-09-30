@@ -28,7 +28,6 @@ async function login(){
     if (token != undefined) {
         let cookie = token;
         document.cookie = "token = "+cookie+"; max-age = 3600; path = /";
-        //localStorage.setItem("token",token)
     } else{
         alert("El usuario o contraseña son incorrectos.");
     }
