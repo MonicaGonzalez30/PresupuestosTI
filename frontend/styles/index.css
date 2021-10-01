@@ -10,6 +10,8 @@ body{
   /* background: rgb(175, 236, 254); */
   background: rgb(139,232,254);
   background: linear-gradient(114deg, rgba(139,232,254,1) 10%, rgba(127,208,250,1) 49%, rgba(90,165,255,1) 90%);
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
 #opcs{

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuestos</title>
+
+    <!--Link a Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!--Link Bootstrap con javascript-->
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <!--Link a hoja de estilos-->
+    <link rel="stylesheet" href="./styles/nuevo.css">
+    <!--Link a Font awesome (iconos)-->
+    <script src="https://kit.fontawesome.com/c99d067221.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+        <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-4 text-center"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">Resumen financicero</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Flujo de efectivo</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Estado de resultados</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Ingresos</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Costos directos</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Gastos administrativos</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Recursos (% de asignación)</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Costos</a>
+          </li>
+          <li>
+            <a href="#" class="nav-link text-white">Resumen costos-recursos</a>
+          </li>
+        </ul>
+        <hr>
+        <!-- <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div> -->
+      </div>
+
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h4>Resumen financiero</h4>
+        </div>
+
+        <div class="row 3 text-center">
+          <div class="col-12">
+            <div class="container" id="contPresupuestos">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Ventas</th>
+                    <th scope="col">Costos</th>
+                    <th scope="col">Margen</th>
+                    <th scope="col">%</th>
+                  </tr>
+                </thead>
+                <tbody class="mPresupuestos">
+                  <!-- Productos -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./js/nuevo.js"></script>
+  </body>
+</html>
