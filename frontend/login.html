@@ -8,12 +8,8 @@
     
     <!--Link a Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <!--Link Bootstrap con javascript-->
-	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <!--Link a hoja de estilos-->
     <link rel="stylesheet" href="./styles/login.css">
-    <!--Link a Font awesome (iconos)-->
-    <script src="https://kit.fontawesome.com/c99d067221.js" crossorigin="anonymous"></script>
     <!--Link al incono de la página-->
     <link rel="shortcut icon" href="#">
   </head>
@@ -22,17 +18,15 @@
     <main class="form-signin">
       <div>
         <h1 class="h3 mb-3 fw-normal">Autenticación</h1>
-        <form onsubmit="return validacion()">
-            <label for="inputUser" class="visually-hidden">Usuario</label>
-            <input type="text" id="inputUser" class="form-control" placeholder="Usuario" required autofocus>
-            <label for="inputPassword" class="visually-hidden">Contraseña</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-            <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Recordar usuario
-            </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary btnLogin" type="submit" onclick="login()">Iniciar sesión</button>
+        <form>
+          <input type="text" id="inputUser" class="form-control" placeholder="Usuario" required>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+          <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Recordar usuario
+          </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-primary btnLogin" type="button" onclick="login()">Iniciar sesión</button>
         </form>
         
         <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
