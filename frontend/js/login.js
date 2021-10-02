@@ -24,9 +24,11 @@ async function login(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(login)
-    });
-    if (token != undefined) {
-        let cookie = token;
+    })
+    .then(data => console.log(data))
+    
+    if (data.token != undefined) {
+        let cookie = data.token;
         document.cookie = "token = "+cookie+"; max-age = 3600; path = /";
     } else{
         alert("El usuario o contraseña son incorrectos.");

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo presupuesto</title>
+    <title>Estado de resultados</title>
 
     <!--Link a Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
@@ -21,14 +21,14 @@
         <span class="fs-4 text-center"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</span>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="resumenF.html" class="nav-link active" aria-current="page">Resumen financicero</a>
+          <li>
+            <a href="resumenF.html" class="nav-link text-white" aria-current="page">Resumen financicero</a>
           </li>
           <li>
             <a href="flujo.html" class="nav-link text-white">Flujo de efectivo</a>
           </li>
-          <li>
-            <a href="estado.html" class="nav-link text-white">Estado de resultados</a>
+          <li class="nav-item">
+            <a href="estado.html" class="nav-link active">Estado de resultados</a>
           </li>
           <li>
             <a href="ingresos.html" class="nav-link text-white">Ingresos</a>
@@ -55,29 +55,35 @@
     <div class="container">
       <main>
         <div class="py-5 text-center">
-          <h4>Resumen financiero</h4>
+          <h4>Estado de resultados</h4>
         </div>
 
         <div class="row 3 text-center">
           <div class="col-12">
-            <div class="container" id="contResumenF">
+            <div class="container" id="contEstado">
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Ventas</th>
                     <th scope="col">Costos</th>
                     <th scope="col">Margen</th>
-                    <th scope="col">%</th>
+                    <th scope="col">Saldo final</th>
+                    <th scope="col">Sumatoria total</th>
                   </tr>
                 </thead>
-                <tbody class="mResumenF">
+                <tbody class="mEstado">
                   
                 </tbody>
               </table>
             </div>
+
+            <button id="btnGuardar" class="w-40 btn btn-success btn-lg btnGuardar" type="button"><i class="far fa-save"></i> Guardar</button>
+            <button id="btnCancelar" class="w-40 btn btn-danger btn-lg btnCancelar" type="button"><i class="fas fa-times"></i> Cancelar</button> 
           </div>
         </div>
       </main>
     </div>
+
+    <script src="./js/estado.js"></script>
   </body>
 </html>
