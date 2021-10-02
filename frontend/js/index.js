@@ -7,3 +7,7 @@ async function logOut(){
     // }
     alert("Ha cerrado sesión");
 }
+
+function nuevo(){
+    window.location="./nuevo.html"; //Redirigir a la pagina
+}
