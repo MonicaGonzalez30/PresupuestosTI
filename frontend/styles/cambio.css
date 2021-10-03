@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    background-image: url(https://img.wallpapersafari.com/tablet/2560/1700/87/40/Lslm2z.jpg);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+  

@@ -18,11 +18,13 @@
 
   <body>
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+      <a href="nuevo.html" class="nav-link active text-center" aria-current="page">
         <span class="fs-4 text-center"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</span>
+      </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="resumenF.html" class="nav-link active" aria-current="page">Resumen financicero</a>
+            <a href="resumenF.html" class="nav-link text-white" aria-current="page">Resumen financicero</a>
           </li>
           <li>
             <a href="flujo.html" class="nav-link text-white">Flujo de efectivo</a>
@@ -55,29 +57,70 @@
     <div class="container">
       <main>
         <div class="py-5 text-center">
-          <h4>Resumen financiero</h4>
+          <h4>Nuevo presupuesto</h4>
         </div>
 
         <div class="row 3 text-center">
           <div class="col-12">
-            <div class="container" id="contResumenF">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Ventas</th>
-                    <th scope="col">Costos</th>
-                    <th scope="col">Margen</th>
-                    <th scope="col">%</th>
-                  </tr>
-                </thead>
-                <tbody class="mResumenF">
-                  
-                </tbody>
-              </table>
-            </div>
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-3">
+                  <label for="model" class="form-label">Fecha de creación</label>
+                  <input type="date" class="form-control" id="modelC" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Se requiere la fecha de creación. <!-- Para el registro en la DB es en formato Año-mes-día. -->
+                  </div>
+                </div>
+
+                <div class="col-7">
+                  <label for="description" class="form-label">Proyecto</label>
+                  <input type="text" class="form-control" id="descriptionC" placeholder="Nombre del proyecto" value="" required>
+                  <div class="invalid-feedback">
+                    Ingrese un nombre para el proyecto.
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <label for="price" class="form-label">Versión</label>
+                  <input type="number" class="form-control" id="priceC" placeholder="1.0" value="" required>
+                  <div class="invalid-feedback">
+                    Se requiere la versión.
+                  </div>
+                </div>
+              </div>
+              <br>
+              <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardar()"><i class="far fa-save"></i> Guardar</button>
+              <button id="btnCancelar" class="w-40 btn btn-warning btn-lg btnCancelar" type="button" data-toggle="modal" data-target="#modalCancelar"><i class="fas fa-times"></i> Cancelar</button> 
+            </form>
           </div>
         </div>
       </main>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalCancelar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cancelar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Los cambios realizados no se guardarán.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="cancelar()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links para que funcione el modal -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Link js -->
+    <script src="./js/nuevo.js"></script>
   </body>
 </html>
