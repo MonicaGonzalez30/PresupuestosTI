@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const {loginModel} = require('./validationModels/login');
-//const {passwordModel} = require('./validationModels/newPass');
+const {passwordModel} = require('./validationModels/newPass');
 
 module.exports.loginValidation = async function(req,res,next){
     try {
