@@ -1,11 +1,13 @@
 async function logOut(){
-    // if (document.cookie != undefined) {
-    //     let cookie = token;
-    //     document.cookie = "token = "+cookie+"; max-age = 1; path = /";
-    // } else{
-    //     alert("Su sesión ha caducado.");
-    // }
-    alert("Ha cerrado sesión");
+    let token = await JSON.parse(localStorage.getItem('Presupuestos_token')); //Obtencion del token
+    if (token != undefined) {
+        localStorage.removeItem('Presupuestos_token');
+        alert("Ha cerrado sesión");
+        window.location="./login.html";
+    } else{
+        alert("Su sesión ha caducado.");
+        window.location="./login.html";
+    }
 }
 
 function nuevo(){

@@ -1,3 +1,5 @@
+const { and } = require("sequelize/types");
+
 function validacion() {
     user = document.getElementById("inputUser").value;
     pass = document.getElementById("inputPassword").value;
@@ -29,7 +31,7 @@ async function login(){
     //Regreso del token
     const data = await url.json();
     console.log(data.token);
-    if (data.token != "Usuario no autenticado.") {
+    if (data.token != "Usuario no autenticado." && data.token != undefined) {
         localStorage.setItem('Presupuestos_token',JSON.stringify(data.token)) //Manda el token al local storage
        // console.log( 'token again', await JSON.parse(localStorage.getItem('Presupuestos_token')))//Obtiene el token desde el local storage
         window.location="./index.html"; //Redirigir a la pagina
