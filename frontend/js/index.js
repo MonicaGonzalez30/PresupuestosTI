@@ -13,3 +13,11 @@ async function logOut(){
 function nuevo(){
     window.location="./nuevo.html"; //Redirigir a la pagina
 }
+
+function aceptarEnv(){
+    alert("Enviado correctamente.");
+}
+
+function aceptarElim(){
+    alert("Eliminado correctamente.");
+}

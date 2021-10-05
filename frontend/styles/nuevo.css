@@ -30,3 +30,23 @@ body{
 .table{
     background-color: rgb(255, 255, 255);
 }
+
+#menu{
+    width: 280px;
+    height: auto;
+    position: -webkit-sticky;
+    position: sticky; 
+
+    overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
+
+    top: 5rem;
+    
+    display: block;
+}
+
+.bd-sidebar{
+    grid-area: sidebar;
+    float:left;
+}

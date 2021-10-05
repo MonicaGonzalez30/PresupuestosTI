@@ -57,6 +57,7 @@
                     <th scope="col">Fecha de creación</th>
                     <th scope="col">Proyecto</th>
                     <th scope="col">Versiones</th>
+                    <th scope="col">Acciones</th>
                   </tr>
                 </thead>
                 <tbody class="mPresupuestos">
@@ -66,6 +67,7 @@
             </div>
             
             <button id="btnNuevo" class="w-40 btn btn-success btn-lg btnNuevo" type="button" onclick="nuevo()"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</button>
+            <button id="btnEnviar" class="w-40 btn btn-warning btn-lg btnEnviar" type="button" data-toggle="modal" data-target="#modalEnviar"><i class="fas fa-paper-plane"></i> Enviar</button>
           </div>
         </div>
       </main>
@@ -74,6 +76,50 @@
         <p class="mb-1">&copy; 2021</p>
       </footer>
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalEnviar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Enviar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Confirme el envío de la información.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="aceptarEnv()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalEliminar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Eliminar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>¿Desea eliminar este presupuesto?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="aceptarElim()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links para que funcione el modal -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="./js/index.js"></script>
   </body>

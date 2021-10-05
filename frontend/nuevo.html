@@ -17,52 +17,54 @@
   </head>
 
   <body>
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-      <a href="nuevo.html" class="nav-link active text-center" aria-current="page">
+    <aside class="bd-sidebar">
+    <div id="menu" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+      <a href="#nuevo" class="nav-link active text-center" aria-current="page">
         <span class="fs-4 text-center"><i class="fas fa-plus-circle"></i> Nuevo presupuesto</span>
       </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="resumenF.html" class="nav-link text-white" aria-current="page">Resumen financicero</a>
+            <a href="#resumenFinanciero" class="nav-link text-white" aria-current="page">Resumen financicero</a>
           </li>
           <li>
-            <a href="flujo.html" class="nav-link text-white">Flujo de efectivo</a>
+            <a href="#flujoEfectivo" class="nav-link text-white">Flujo de efectivo</a>
           </li>
           <li>
-            <a href="estado.html" class="nav-link text-white">Estado de resultados</a>
+            <a href="#estadoResultados" class="nav-link text-white">Estado de resultados</a>
           </li>
           <li>
-            <a href="ingresos.html" class="nav-link text-white">Ingresos</a>
+            <a href="#ingresos" class="nav-link text-white">Ingresos</a>
           </li>
           <li>
-            <a href="costosD.html" class="nav-link text-white">Costos directos</a>
+            <a href="#costosDirectos" class="nav-link text-white">Costos directos</a>
           </li>
           <li>
-            <a href="gastos.html" class="nav-link text-white">Gastos administrativos</a>
+            <a href="#gastosAdmin" class="nav-link text-white">Gastos administrativos</a>
           </li>
           <li>
-            <a href="recursos.html" class="nav-link text-white">Recursos (% de asignación)</a>
+            <a href="#recursos" class="nav-link text-white">Recursos (% de asignación)</a>
           </li>
           <li>
-            <a href="costos.html" class="nav-link text-white">Costos</a>
+            <a href="#costos" class="nav-link text-white">Costos</a>
           </li>
           <li>
-            <a href="resumenCR.html" class="nav-link text-white">Resumen costos-recursos</a>
+            <a href="#resumenCostRec" class="nav-link text-white">Resumen costos-recursos</a>
           </li>
         </ul>
         <hr>
       </div>
+    </aside>
 
     <div class="container">
       <main>
         <div class="py-5 text-center">
-          <h4>Nuevo presupuesto</h4>
+          <h4 id="nuevo">Nuevo presupuesto</h4>
         </div>
 
         <div class="row 3 text-center">
           <div class="col-12">
-            <form class="needs-validation" novalidate>
+            <div class="needs-validation" novalidate>
               <div class="row g-3">
                 <div class="col-3">
                   <label for="model" class="form-label">Fecha de creación</label>
@@ -89,9 +91,247 @@
                 </div>
               </div>
               <br>
-              <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardar()"><i class="far fa-save"></i> Guardar</button>
-              <button id="btnCancelar" class="w-40 btn btn-warning btn-lg btnCancelar" type="button" data-toggle="modal" data-target="#modalCancelar"><i class="fas fa-times"></i> Cancelar</button> 
-            </form>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="resumenFinanciero">Resumen financiero</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contResumenF">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ventas</th>
+                        <th scope="col">Costos</th>
+                        <th scope="col">Margen</th>
+                        <th scope="col">%</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mResumenF">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="flujoEfectivo">Flujo de efectivo</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="table-responsive" id="contFlujo">
+                  <table class="table table-bordered">
+                    <thead class="columnas">
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col" id="nuevaColumna"></th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mFlujo">
+                      <tr>
+                        <th scope="row">Ingresos</th>
+                        <td class="ingresos"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Egresos</th>
+                        <td class="egresos"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Total</th>
+                        <td class="total"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">Acumulado</th>
+                        <td class="acumulado"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+    
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnAgregar" class="w-40 btn btn-danger btn-lg btnAgregar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="estadoResultados">Estado de resultados</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contEstado">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ventas</th>
+                        <th scope="col">Costos</th>
+                        <th scope="col">Margen</th>
+                        <th scope="col">Saldo final</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mEstado">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="ingresos">Ingresos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contIngresos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mIgresos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="costosDirectos">Costos directos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contCostosD">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mCostosD">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="gastosAdmin">Gastos administrativos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contGastos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mGastos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="recursos">Recursos (% de asignación)</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contRecursos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mRecursos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="costos">Costos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contCostos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mCostos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="resumenCostRec">Resumen costos-recursos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contResumen">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mResumen">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardar()"><i class="far fa-save"></i> Guardar</button>
+            <button id="btnCancelar" class="w-40 btn btn-warning btn-lg btnCancelar" type="button" data-toggle="modal" data-target="#modalCancelar"><i class="fas fa-times"></i> Cancelar</button> 
           </div>
         </div>
       </main>
