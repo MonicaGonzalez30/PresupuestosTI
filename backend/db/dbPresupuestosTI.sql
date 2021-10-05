@@ -24,7 +24,7 @@ CREATE TABLE cashFlow(
 	[entry] FLOAT NOT NULL,
 	[month] VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idFlow),
-	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget)
+	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget) ON DELETE CASCADE
 );
 
 CREATE TABLE income(
@@ -34,7 +34,7 @@ CREATE TABLE income(
 	[entry] FLOAT NOT NULL,
 	[month] VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idEntry),
-	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget)
+	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget) ON DELETE CASCADE
 );
 
 CREATE TABLE sinews(
@@ -45,7 +45,7 @@ CREATE TABLE sinews(
 	[percentage] FLOAT NOT NULL,
 	[month] VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idResource),
-	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget)
+	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget) ON DELETE CASCADE
 );
 
 CREATE TABLE administrativeExpenses(
@@ -55,7 +55,7 @@ CREATE TABLE administrativeExpenses(
 	spending FLOAT NOT NULL,
 	[month] VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idSpending),
-	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget)
+	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget) ON DELETE CASCADE
 );
 
 CREATE TABLE directCosts(
@@ -65,5 +65,5 @@ CREATE TABLE directCosts(
 	cost FLOAT NOT NULL,
 	[month] VARCHAR(15) NOT NULL,
 	PRIMARY KEY (idCost),
-	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget)
+	FOREIGN KEY (idBudget) REFERENCES budgets(idBudget) ON DELETE CASCADE
 );

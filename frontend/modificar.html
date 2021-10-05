@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar presupuesto</title>
+
+    <!--Link a Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!--Link Bootstrap con javascript-->
+	  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <!--Link a hoja de estilos-->
+    <link rel="stylesheet" href="./styles/nuevo.css">
+    <!--Link a Font awesome (iconos)-->
+    <script src="https://kit.fontawesome.com/c99d067221.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <aside class="bd-sidebar">
+    <div id="menu" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
+      <a href="#modificar" class="nav-link active text-center" aria-current="page">
+        <span class="fs-4 text-center"><i class="fas fa-pencil-alt"></i> Modificar presupuesto</span>
+      </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#resumenFinanciero" class="nav-link text-white" aria-current="page">Resumen financicero</a>
+          </li>
+          <li>
+            <a href="#flujoEfectivo" class="nav-link text-white">Flujo de efectivo</a>
+          </li>
+          <li>
+            <a href="#estadoResultados" class="nav-link text-white">Estado de resultados</a>
+          </li>
+          <li>
+            <a href="#ingresos" class="nav-link text-white">Ingresos</a>
+          </li>
+          <li>
+            <a href="#costosDirectos" class="nav-link text-white">Costos directos</a>
+          </li>
+          <li>
+            <a href="#gastosAdmin" class="nav-link text-white">Gastos administrativos</a>
+          </li>
+          <li>
+            <a href="#recursos" class="nav-link text-white">Recursos (% de asignación)</a>
+          </li>
+          <li>
+            <a href="#costos" class="nav-link text-white">Costos</a>
+          </li>
+          <li>
+            <a href="#resumenCostRec" class="nav-link text-white">Resumen costos-recursos</a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </aside>
+
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h4 id="modificar">Modificar presupuesto</h4>
+        </div>
+
+        <div class="row 3 text-center">
+          <div class="col-12">
+            <div class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-3">
+                  <label for="model" class="form-label">Fecha de creación</label>
+                  <input type="date" class="form-control" id="modelC" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Se requiere la fecha de creación. <!-- Para el registro en la DB es en formato Año-mes-día. -->
+                  </div>
+                </div>
+
+                <div class="col-7">
+                  <label for="description" class="form-label">Proyecto</label>
+                  <input type="text" class="form-control" id="descriptionC" placeholder="Nombre del proyecto" value="" required>
+                  <div class="invalid-feedback">
+                    Ingrese un nombre para el proyecto.
+                  </div>
+                </div>
+
+                <div class="col-2">
+                  <label for="price" class="form-label">Versión</label>
+                  <input type="number" class="form-control" id="priceC" placeholder="1.0" value="" required>
+                  <div class="invalid-feedback">
+                    Se requiere la versión.
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="resumenFinanciero">Resumen financiero</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contResumenF">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ventas</th>
+                        <th scope="col">Costos</th>
+                        <th scope="col">Margen</th>
+                        <th scope="col">%</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mResumenF">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="flujoEfectivo">Flujo de efectivo</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="table-responsive" id="contFlujo">
+                  <table class="table table-bordered">
+                    <thead class="columnas">
+                      <tr>
+                        <th scope="col">Mes</th>
+                        <th scope="col">Ingresos</th>
+                        <th scope="col">Egresos</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Acumulado</th>
+                      </tr>
+                    </thead>
+                    <tbody id="mFlujo" class="mFlujo">
+                      <!-- Filas agregadas -->
+                    </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totIng"></td>
+                      <td id="totEgre"></td>
+                      <td id="totTot"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+    
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnAgregar" class="w-40 btn btn-danger btn-lg btnAgregar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="estadoResultados">Estado de resultados</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contEstado">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ventas</th>
+                        <th scope="col">Costos</th>
+                        <th scope="col">Margen</th>
+                        <th scope="col">Saldo final</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mEstado">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="ingresos">Ingresos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contIngresos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mIgresos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="costosDirectos">Costos directos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contCostosD">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mCostosD">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="gastosAdmin">Gastos administrativos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contGastos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Concepto</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mGastos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="recursos">Recursos (% de asignación)</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contRecursos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mRecursos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="costos">Costos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contCostos">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mCostos">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br> <!-- Sección -->
+            <div class="py-5 text-center">
+              <h4 id="resumenCostRec">Resumen costos-recursos</h4>
+            </div>
+    
+            <div class="row 3 text-center">
+              <div class="col-12">
+                <div class="container" id="contResumen">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Recursos</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Sumatoria total</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mResumen">
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardar()"><i class="far fa-save"></i> Guardar</button>
+            <button id="btnCancelar" class="w-40 btn btn-warning btn-lg btnCancelar" type="button" data-toggle="modal" data-target="#modalCancelar"><i class="fas fa-times"></i> Cancelar</button> 
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalCancelar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cancelar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Los cambios realizados no se guardarán.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="cancelar()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links para que funcione el modal -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Link js -->
+    <script src="./js/modificar.js"></script>
+  </body>
+</html>

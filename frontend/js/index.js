@@ -26,7 +26,7 @@ function eliminar(){
 }
 
 function modificar(){
-    alert("Se estan modificando filas")
+    window.location="./modificar.html";
 }
 
 async function logOut(){
