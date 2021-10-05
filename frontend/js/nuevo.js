@@ -1,31 +1,26 @@
 function agregar(){
-    const HTMLTitulo = document.querySelector("#nuevaColumna");
-    const HTMLIngresos = document.querySelector(".ingresos");
-    const HTMLEgresos = document.querySelector(".egresos");
-    const HTMLTotal = document.querySelector(".total");
-    const HTMLAcumulado = document.querySelector(".acumulado");
+    var mFlujo = document.getElementById("mFlujo");
+    var row = mFlujo.insertRow(0);
+    var mes = row.insertCell(0);
+    var ingreso = row.insertCell(1);
+    var egreso = row.insertCell(2);
+    var total = row.insertCell(3);
+    var acum = row.insertCell(4);
 
-    let titulo = `<th scope="col">Columna</th>`;
-    let ingresos = `<td>ColumnaIngresos</td>`;
-    let egresos = `<td>ColumnaEngresos</td>`;
-    let total = `<td>ColumnaTotal</td>`;
-    let acum = `<td>ColumnaAcumulado</td>`;
-
-    HTMLTitulo.innerHTML = `${titulo}`;
-    HTMLIngresos.innerHTML = `${ingresos}`;
-    HTMLEgresos.innerHTML = `${egresos}`;
-    HTMLTotal.innerHTML = `${total}`;
-    HTMLAcumulado.innerHTML = `${acum}`;
-    //alert("Se estan agregando columnas")
+    mes.innerHTML = "Enero";
+    ingreso.innerHTML = "100";
+    egreso.innerHTML = "60";
+    total.innerHTML = "40";
+    acum.innerHTML = "40";
 }
 
 function eliminar(){
-    //alert("Se estan eliminando columnas")
+    //alert("Se estan eliminando filas")
     
 }
 
 function guardar(){
-    //alert("Se estan agregando columnas")
+    //alert("Se estan agregando filas")
     window.location="./index.html"; //Redirigir a la pagina
 }
 
