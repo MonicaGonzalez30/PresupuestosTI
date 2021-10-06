@@ -1,5 +1,3 @@
-const { and } = require("sequelize/types");
-
 function validacion() {
     user = document.getElementById("inputUser").value;
     pass = document.getElementById("inputPassword").value;

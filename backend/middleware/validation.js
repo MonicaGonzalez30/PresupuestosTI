@@ -21,3 +21,13 @@ module.exports.newPassValidation = async function(req,res,next){
         res.status(500).json({error: error.message})
     }
 }
+
+module.exports.autenticarCambioC = function (req,res,next) {
+    const {user,password,newPassword,token} = req.body;
+    if(token != null || token != undefined){
+        return next()
+    }
+    else{
+        return res.status(400).json("No puedes cambiar la contraseña")
+    }
+}
