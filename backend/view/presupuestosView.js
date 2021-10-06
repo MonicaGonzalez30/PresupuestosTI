@@ -7,7 +7,10 @@ module.exports = async (app) => {
     });
 
     //Crear presupuesto
-
+    app.post('/createPresupuesto',async(req,res) => {
+        let presupuesto = req.body;
+        res.send(await prespuestosController.createPresupuesto(presupuesto));
+    });
 
     //Mostrar toda la información del presupuesto
 

@@ -68,7 +68,7 @@
               <div class="row g-3">
                 <div class="col-3">
                   <label for="model" class="form-label">Fecha de creación</label>
-                  <input type="date" class="form-control" id="modelC" placeholder="" value="" required>
+                  <input type="text" class="form-control" id="modelC" placeholder="Año-mes-día" value="" required>
                   <div class="invalid-feedback">
                     Se requiere la fecha de creación. <!-- Para el registro en la DB es en formato Año-mes-día. -->
                   </div>
@@ -150,8 +150,7 @@
               </div>
             </div>
     
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnAgregar" class="w-40 btn btn-danger btn-lg btnAgregar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+            <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="button" onclick="modificar()"><i class="fas fa-pencil-alt"></i></button> <!-- Modificar --> 
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -164,16 +163,22 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
+                        <th scope="col">Mes</th>
                         <th scope="col">Ventas</th>
                         <th scope="col">Costos</th>
                         <th scope="col">Margen</th>
                         <th scope="col">Saldo final</th>
-                        <th scope="col">Sumatoria total</th>
                       </tr>
                     </thead>
                     <tbody class="mEstado">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totVent"></td>
+                      <td id="totCost"></td>
+                      <td id="totMargen"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
@@ -191,17 +196,23 @@
                     <thead>
                       <tr>
                         <th scope="col">Concepto</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Ingreso</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
                     <tbody class="mIgresos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totIng"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
             </div>
+
+            <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="button" onclick="modificar()"><i class="fas fa-pencil-alt"></i></button> <!-- Modificar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -215,17 +226,23 @@
                     <thead>
                       <tr>
                         <th scope="col">Concepto</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Costo</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
-                    <tbody class="mCostosD">
+                    <tbody class="mCostos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totCost"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
             </div>
+
+            <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="button" onclick="modificar()"><i class="fas fa-pencil-alt"></i></button> <!-- Modificar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -239,17 +256,23 @@
                     <thead>
                       <tr>
                         <th scope="col">Concepto</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Gasto</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
                     <tbody class="mGastos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totGas"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
             </div>
+
+            <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="button" onclick="modificar()"><i class="fas fa-pencil-alt"></i></button> <!-- Modificar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -262,17 +285,25 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th scope="col">Recursos</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Recurso</th>
+                        <th scope="col">%</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
                     <tbody class="mRecursos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totRec"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
             </div>
+
+            <button id="btnModificar" class="w-40 btn btn-primary btn-lg btnModificar" type="button" onclick="modificar()"><i class="fas fa-pencil-alt"></i></button> <!-- Modificar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -285,14 +316,18 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th scope="col">Recursos</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Recursos (Rol)</th>
+                        <th scope="col">Costos</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
                     <tbody class="mCostos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totCost"></td>
+                    </tr>
                   </table>
                 </div>
               </div>
@@ -309,14 +344,18 @@
                   <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th scope="col">Recursos</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Sumatoria total</th>
+                        <th scope="col">Recursos (Rol)</th>
+                        <th scope="col">Costos x Recursos</th>
+                        <th scope="col">Mes</th>
                       </tr>
                     </thead>
-                    <tbody class="mResumen">
+                    <tbody class="mCostos">
                       
                     </tbody>
+                    <tr>
+                      <th scope="row">Total</th>
+                      <td id="totCostRec"></td>
+                    </tr>
                   </table>
                 </div>
               </div>

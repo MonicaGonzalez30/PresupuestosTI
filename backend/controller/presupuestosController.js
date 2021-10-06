@@ -6,6 +6,12 @@ module.exports.listaPresupuestos = async () => {
     return result;
 }
 
+module.exports.createPresupuesto = async (presupuesto) => {
+    let response = new presupuestosModel();
+    let result = await response.createPresu(presupuesto);
+    return "Producto creado.";
+}
+
 module.exports.deletePresupuesto = async (budgetId) => {
     let response = new presupuestosModel();
     let result = await response.delete(budgetId);
