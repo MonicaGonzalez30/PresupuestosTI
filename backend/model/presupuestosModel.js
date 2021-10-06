@@ -13,7 +13,17 @@ module.exports = class presupuestosModel {
         let result = await sequelize.query("INSERT INTO budgets (creationDate,project,[version]) VALUES ('" + presupuesto.creationDate + "','" + presupuesto.project + "'," + presupuesto.version + ");");
         return result;
     }
-    
+
+    async updatePresuVersion (presupuesto){
+        let result = await sequelize.query("SELECT * FROM budgets WHERE idBudget = " + presupuesto.idBudget);
+        if(result[0][0] != undefined){
+            let result = await sequelize.query("UPDATE products SET [version] = " + presupuesto.version + " WHERE idProduct = " + presupuesto.idBudget + ";");
+            return result;
+        } else {
+            return "";
+        }
+    }
+
     async delete (budgetId){
         let result = await sequelize.query("SELECT * FROM budgets WHERE idBudget = " + budgetId);
         if(result[0][0] != undefined){

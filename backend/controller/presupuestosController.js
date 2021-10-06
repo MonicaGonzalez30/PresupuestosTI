@@ -9,7 +9,17 @@ module.exports.listaPresupuestos = async () => {
 module.exports.createPresupuesto = async (presupuesto) => {
     let response = new presupuestosModel();
     let result = await response.createPresu(presupuesto);
-    return "Producto creado.";
+    return "Presupuesto creado.";
+}
+
+module.exports.updatePresupuesto = async (presupuesto) => {
+    let response = new presupuestosModel();
+    let result = await response.updatePresuVersion(presupuesto);
+    if (result != '') {
+        return "Versión del presupuesto modificada.";
+    } else {
+        return "El presupuesto no existe."
+    }
 }
 
 module.exports.deletePresupuesto = async (budgetId) => {

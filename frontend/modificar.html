@@ -67,10 +67,10 @@
             <div class="needs-validation" novalidate>
               <div class="row g-3">
                 <div class="col-3">
-                  <label for="model" class="form-label">Fecha de creación</label>
-                  <input type="text" class="form-control" id="modelC" placeholder="Año-mes-día" value="" required>
+                  <label for="model" class="form-label">ID presupuesto</label>
+                  <input type="text" class="form-control" id="idPres" placeholder="ID" value="" required>
                   <div class="invalid-feedback">
-                    Se requiere la fecha de creación. <!-- Para el registro en la DB es en formato Año-mes-día. -->
+                    Se requiere el ID del presupuesto.
                   </div>
                 </div>
 
@@ -84,7 +84,7 @@
 
                 <div class="col-2">
                   <label for="price" class="form-label">Versión</label>
-                  <input type="number" class="form-control" id="priceC" placeholder="1.0" value="" required>
+                  <input type="number" class="form-control" id="version" placeholder="1.0" value="" required>
                   <div class="invalid-feedback">
                     Se requiere la versión.
                   </div>
@@ -362,7 +362,7 @@
             </div>
 
             <br>
-            <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardar()"><i class="far fa-save"></i> Guardar</button>
+            <button id="btnGuardar" class="w-40 btn btn-primary btn-lg btnGuardar" type="button" onclick="guardarModificado()"><i class="far fa-save"></i> Guardar</button>
             <button id="btnCancelar" class="w-40 btn btn-warning btn-lg btnCancelar" type="button" data-toggle="modal" data-target="#modalCancelar"><i class="fas fa-times"></i> Cancelar</button> 
           </div>
         </div>
