@@ -21,10 +21,6 @@ function mostrarPresupuestos() {
     getPresupuestos();
 }
 
-function eliminar(){
-    alert("Se estan eliminando filas")
-}
-
 function modificar(){
     window.location="./modificar.html";
 }
@@ -49,8 +45,30 @@ function aceptarEnv(){
     alert("Enviado correctamente.");
 }
 
-function aceptarElim(){
-    alert("Eliminado correctamente.");
+async function aceptarElim(){
+    let token = await JSON.parse(localStorage.getItem('Presupuestos_token')); //Obtencion del token
+    const id = document.getElementById("idBudget");
+    const idBudget = String(id.value); //obtener el valor
+    console.log("Este es el id: "+idBudget)
+
+    if (token != null || token != undefined) {
+        let url = await fetch('http://localhost:3000/deletePresupuesto/'+idBudget, {
+            method: "DELETE"
+        });
+        //Regreso de la respuesta
+        const data = await url.text();
+        console.log(data)
+        if (data != "El presupuesto no existe.") {
+            alert("Presupuesto eliminado correctamente.");
+            window.location="./index.html"; //Redirigir a la pagina
+        } else {
+            alert("El presupuesto no existe.")
+            window.location="./index.html";
+        }
+    } else{
+        alert("No puede realizar la eliminación de un presupuesto. Su sesión ha cadudado.")
+        window.location="./login.html";
+    }
 }
 
 mostrarPresupuestos();
