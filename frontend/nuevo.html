@@ -150,8 +150,8 @@
               </div>
             </div>
     
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregarFlujo()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -213,8 +213,8 @@
               </div>
             </div>
 
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregarIngres()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -244,8 +244,8 @@
               </div>
             </div>
 
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregarCostD()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -275,8 +275,8 @@
               </div>
             </div>
 
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar --> 
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregarGasto()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -307,8 +307,8 @@
               </div>
             </div>
 
-            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregar()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
-            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" onclick="eliminar()"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
+            <button id="btnAgregar" class="w-40 btn btn-success btn-lg btnAgregar" type="button" onclick="agregarRecurso()"><i class="fas fa-plus-circle"></i></button> <!-- Agregar -->
+            <button id="btnEliminar" class="w-40 btn btn-danger btn-lg btnEliminar" type="button" data-toggle="modal" data-target="#modalEliminar"><i class="fas fa-trash-alt"></i></button> <!-- Eliminar -->
 
             <br> <!-- Sección -->
             <div class="py-5 text-center">
@@ -389,6 +389,26 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="cancelar()">Aceptar</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalEliminar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Eliminar registro</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>¿Desea eliminar el último registro?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="eliminar()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>

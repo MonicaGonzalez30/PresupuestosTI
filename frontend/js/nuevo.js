@@ -1,4 +1,4 @@
-function agregar(){
+function agregarFlujo(){
     var mFlujo = document.getElementById("mFlujo");
     var row = mFlujo.insertRow(0);
     var mes = row.insertCell(0);
@@ -7,16 +7,51 @@ function agregar(){
     var total = row.insertCell(3);
     var acum = row.insertCell(4);
 
-    mes.innerHTML = "Enero";
-    ingreso.innerHTML = "100";
-    egreso.innerHTML = "60";
-    total.innerHTML = "40";
-    acum.innerHTML = "40";
+    let meses = `<select class="form-select" aria-label="Default select example">
+        <option selected>Meses</option>
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>`;
+
+    let cantIngreso = `<input type="number" class="form-control" id="ingreso" placeholder="" value="">`;
+
+    mes.innerHTML = meses;
+    ingreso.innerHTML = cantIngreso;
+    egreso.innerHTML = "-";
+    total.innerHTML = "-";
+    acum.innerHTML = "-";
+}
+
+function agregarIngres(){
+
+}
+
+function agregarCostD(){
+
+}
+
+function agregarGasto(){
+
+}
+
+function agregarRecurso(){
+
 }
 
 function eliminar(){
-    //alert("Se estan eliminando filas")
-    
+    alert("Se esta eliminando la última fila")
+    // var mFlujo = document.getElementById("mFlujo");
+    // var row = mFlujo.removeAttribute(0);
 }
 
 function guardar(){
