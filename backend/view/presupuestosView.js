@@ -6,20 +6,20 @@ module.exports = async (app) => {
         res.send(await prespuestosController.listaPresupuestos());
     });
 
-    //Crear presupuesto
+    //Crear presupuesto (Solo de la tabla budgets)
     app.post('/createPresupuesto',async(req,res) => {
         let presupuesto = req.body;
         res.send(await prespuestosController.createPresupuesto(presupuesto));
     });
 
-    //Mostrar toda la información del presupuesto
+    //Mostrar información del presupuesto (Solo de la tabla budgets)
     app.get('/presupuesto/:id',async(req,res) => {
         let budgetId = req.params.id
         console.log(await prespuestosController.findPresupuesto(budgetId))
         res.send(await prespuestosController.findPresupuesto(budgetId));
     });
 
-    //Modificar el presupuesto
+    //Modificar el presupuesto (Solo de la tabla budgets, modifica la version)
     app.post('/updatePresupuesto',async(req,res) => {
         let presupuesto = req.body;
         res.send(await prespuestosController.updatePresupuesto(presupuesto));
