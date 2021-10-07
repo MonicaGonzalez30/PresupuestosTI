@@ -17,7 +17,7 @@ module.exports = class presupuestosModel {
     async updatePresuVersion (presupuesto){
         let result = await sequelize.query("SELECT * FROM budgets WHERE idBudget = " + presupuesto.idBudget);
         if(result[0][0] != undefined){
-            let result = await sequelize.query("UPDATE products SET [version] = " + presupuesto.version + " WHERE idProduct = " + presupuesto.idBudget + ";");
+            let result = await sequelize.query("UPDATE budgets SET [version] = " + presupuesto.version + " WHERE idBudget = " + presupuesto.idBudget + ";");
             return result;
         } else {
             return "";

@@ -9,7 +9,6 @@ module.exports = async (app) => {
     //Crear presupuesto
     app.post('/createPresupuesto',async(req,res) => {
         let presupuesto = req.body;
-        console.log("Esto es el res.send: "+await prespuestosController.createPresupuesto(presupuesto));
         res.send(await prespuestosController.createPresupuesto(presupuesto));
     });
 
@@ -19,7 +18,7 @@ module.exports = async (app) => {
     //Modificar el presupuesto
     app.post('/updatePresupuesto',async(req,res) => {
         let presupuesto = req.body;
-        res.send(await productController.updatePresupuesto(presupuesto));
+        res.send(await prespuestosController.updatePresupuesto(presupuesto));
     });
 
     //Eliminar presupuesto
