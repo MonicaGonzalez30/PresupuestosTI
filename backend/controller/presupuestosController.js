@@ -12,6 +12,16 @@ module.exports.createPresupuesto = async (presupuesto) => {
     return "Presupuesto creado.";
 }
 
+module.exports.findPresupuesto = async (budgetId) => {
+    let response = new presupuestosModel();
+    let result = await response.findPresu(budgetId);
+    if (result) {
+        return result;
+    } else {
+        return "El presupuesto no existe."
+    }
+}
+
 module.exports.updatePresupuesto = async (presupuesto) => {
     let response = new presupuestosModel();
     let result = await response.updatePresuVersion(presupuesto);

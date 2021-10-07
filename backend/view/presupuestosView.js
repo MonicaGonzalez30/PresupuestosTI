@@ -13,7 +13,11 @@ module.exports = async (app) => {
     });
 
     //Mostrar toda la información del presupuesto
-
+    app.get('/presupuesto/:id',async(req,res) => {
+        let budgetId = req.params.id
+        console.log(await prespuestosController.findPresupuesto(budgetId))
+        res.send(await prespuestosController.findPresupuesto(budgetId));
+    });
 
     //Modificar el presupuesto
     app.post('/updatePresupuesto',async(req,res) => {

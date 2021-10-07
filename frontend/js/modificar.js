@@ -1,3 +1,30 @@
+async function aceptarModi(){
+    const id = document.getElementById("idBudgetM");
+    const idBudget = String(id.value); //obtener el valor
+
+    let url = await fetch('http://localhost:3000/presupuesto/'+idBudget, {
+        method: "GET"
+    });
+    //Regreso de la respuesta
+    const data = await url.json(url);
+    console.log(data)
+    if (data != "El presupuesto no existe.") {
+        //Mostrar la información
+        const id = document.getElementById("idPres");
+        const proyecto = document.getElementById("nomProyect");
+        const version = document.getElementById("version");
+        
+        id.value = data.idBudget;
+        proyecto.value = data.project;
+        version.value = data.version;
+
+        alert("Datos cargados, cierre el mensaje de modificar para visualizarlos.");
+    } else {
+        alert("El presupuesto no existe.")
+        window.location="./index.html";
+    }
+}
+
 function guardarModificado(){
     async function createPresupuesto() {
         let id = document.getElementById('idPres').value;

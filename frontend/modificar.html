@@ -66,24 +66,28 @@
           <div class="col-12">
             <div class="needs-validation" novalidate>
               <div class="row g-3">
-                <div class="col-3">
+                <div class="col-2">
+                  <button id="btnCargar" class="w-40 btn btn-warning btn-lg btnCargar" type="button" data-toggle="modal" data-target="#modalModificar">Cargar datos</button>
+                </div>
+
+                <div class="col-2">
                   <label for="model" class="form-label">ID presupuesto</label>
-                  <input type="text" class="form-control" id="idPres" placeholder="ID" value="" required>
+                  <input type="number" class="form-control" id="idPres" placeholder="ID" value="" readonly="readonly">
                   <div class="invalid-feedback">
                     Se requiere el ID del presupuesto.
                   </div>
                 </div>
 
-                <div class="col-7">
+                <div class="col-6">
                   <label for="description" class="form-label">Proyecto</label>
-                  <input type="text" class="form-control" id="descriptionC" placeholder="Nombre del proyecto" value="" required>
+                  <input type="text" class="form-control" id="nomProyect" placeholder="Nombre del proyecto" value="" readonly="readonly">
                   <div class="invalid-feedback">
                     Ingrese un nombre para el proyecto.
                   </div>
                 </div>
 
                 <div class="col-2">
-                  <label for="price" class="form-label">Versión</label>
+                  <label for="price" class="form-label">Nueva versión</label>
                   <input type="number" class="form-control" id="version" placeholder="1.0" value="" required>
                   <div class="invalid-feedback">
                     Se requiere la versión.
@@ -367,6 +371,28 @@
           </div>
         </div>
       </main>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="modalModificar">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modificar</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>¿Desea modificar un presupuesto?</p>
+            <label for="idModificar" class="form-label">Por favor, ingrese el ID del presupuesto a modificar</label>
+            <input type="number" class="form-control" id="idBudgetM" placeholder="ID" value="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="aceptarModi()">Aceptar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="modal" tabindex="-1" role="dialog" id="modalCancelar">

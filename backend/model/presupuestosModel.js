@@ -14,6 +14,11 @@ module.exports = class presupuestosModel {
         return result;
     }
 
+    async findPresu (budgetId){
+        let result = await sequelize.query("SELECT * FROM budgets WHERE idBudget = " + budgetId);
+        return result[0][0];
+    }
+
     async updatePresuVersion (presupuesto){
         let result = await sequelize.query("SELECT * FROM budgets WHERE idBudget = " + presupuesto.idBudget);
         if(result[0][0] != undefined){
